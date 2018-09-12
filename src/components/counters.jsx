@@ -13,11 +13,14 @@ class Counters extends Component {
   };
 
   handleIncrement = counter => {
+    // To update one object in counters state only clone that object out of all other objects at different indexes and update it
     // console.log("Counter", counter);
     const counters = [...this.state.counters];
-    counters[0] = { ...counter };
-    counters[0].value++;
-    console.log(this.state.counters[0]);
+    const index = counters.indexOf(counter);
+    counters[index] = { ...counter };
+    counters[index].value++;
+    // console.log(this.state.counters[index]);
+    this.setState({ counters: counters });
   };
 
   handleReset = () => {

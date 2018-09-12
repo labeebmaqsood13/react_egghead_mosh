@@ -36,10 +36,11 @@ class Counter extends Component {
     );
   }
 
-  handleIncrement = product => {
-    // console.log("Increment clicked", this);
-    this.setState({ value: this.props.counter.value + 1 });
-  };
+  // Not being used as this is a controlled component
+  // handleIncrement = product => {
+  //   // console.log("Increment clicked", this);
+  //   this.setState({ value: this.props.counter.value + 1 });
+  // };
 
   render() {
     return (
