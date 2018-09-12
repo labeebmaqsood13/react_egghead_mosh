@@ -1,3 +1,4 @@
+//Prettier+simple react snippets imrc cc
 import React, { Component } from "react";
 import Counter from "./counter";
 
