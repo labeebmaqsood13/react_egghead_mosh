@@ -20,11 +20,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.css";
 // import Counter from "./components/counter"; // 1st section mosh
-import Counters from "./components/counters";
+// import Counters from "./components/counters";
+import MoshApp from "./MoshApp";
 
 // // Stateless componenet
 // const element = <h1>Hello World</h1>;
 // // Rendering on dom
 // ReactDOM.render(element, document.getElementById("root"));
 
-ReactDOM.render(<Counters />, document.getElementById("root"));
+ReactDOM.render(<MoshApp />, document.getElementById("root"));
