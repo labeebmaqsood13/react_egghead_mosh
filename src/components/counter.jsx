@@ -8,6 +8,20 @@
 import React, { Component } from "react";
 
 class Counter extends Component {
+  // ComponentDidUpdate example
+  componentDidUpdate(prevProps, prevState) {
+    console.log("Prevprops", prevProps);
+    console.log("PrevState", prevState);
+
+    if (prevProps.counter.value != this.props.counter.value) {
+      // Ajax call and get new data from the server
+    }
+  }
+
+  componentWillUnmount() {
+    console.log("Counter - unmount");
+  }
+
   state = {
     // value: this.props.counter.value,
     imageUrl: "https://picsum.photos/200",
@@ -43,6 +57,7 @@ class Counter extends Component {
   // };
 
   render() {
+    console.log("Counter - Rendered");
     return (
       // If dont want extra div to wrap h1 n btn then use React.Fragment or <> </>
       <React.Fragment>

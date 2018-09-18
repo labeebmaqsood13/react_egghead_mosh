@@ -17,6 +17,7 @@ import React, { Component } from "react";
 
 // Stateless functional component (use 'sfc' to generate stateless functional component from react snippets extension)
 const Navbar = ({ totalCounters }) => {
+  console.log("Navbar - Rendered"); //Cannot use lifecycle hooks in stateless functional components
   return (
     <nav className="navbar navbar-light bg-light">
       <a className="navbar-brand" href="#">
