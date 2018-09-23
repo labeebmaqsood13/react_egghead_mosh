@@ -340,16 +340,66 @@
 
 
 // // ----------------- 16th tutorial - Build a JSX Live Compiler as a React Component -------------- //
+// // Creating your own custom transpiler using babel
+
+// // Added cdn of babel standalone in index.html in script tag 
 
 // import React from 'react'
-
+// import './App.css' // or i can simply state import 'App.css'
 // class App extends React.Component{
+// 	constructor(){
+// 		super();
+// 		this.state = {
+// 			input: '/* Add your jsx here */',
+// 			output: '',
+// 			err: ''
+// 		}
+// 	}
+// 	update(e){
+// 		// We can access window like this and it has all the events plus it has babel standalone 
+// 		// so one we import babel standalone through cdn in script tag we can access it by window.Babel...
+// 		// console.log(window);
+// 		let code = e.target.value;
+// 		try{
+// 			this.setState({
+// 				output:window.Babel
+// 				.transform(code, {presets:['es2015']})
+// 				.code,
+// 				err: ''
+// 			})
+// 		}
+// 		catch(err)
+// 		{
+// 			this.setState({err: err.message})
+// 		}
+// 	}
 // 	render(){
 // 		return(
-// 			<div>Hello</div>
+// 			<div>
+// 				<header>{this.state.err}</header>
+// 				<div className="container">
+// 					<textarea
+// 						onChange={this.update.bind(this)}
+// 						defaultValue={this.state.input} />
+// 					<pre>
+// 						{this.state.output}
+// 					</pre>
+// 				</div>
+// 			</div>
 // 		)
 // 	}
 // }
 
 // export default App
+
+
+
+// // ----------------- 17th tutorial - Build a JSX Live Compiler as a React Component -------------- //
+
+
+
+
+
+
+
 
