@@ -275,9 +275,34 @@
 
 // export default App
 
-// ----------------- Incomplete 15th tutorial - Compose React Component Behavior with Higher Order Components -------------- //
-
+// // ----------------- 15th tutorial - Compose React Component Behavior with Higher Order Components -------------- //
+// // WHY HOC:
+// // 1) to share info or some new thing between all components or the ones we want
+// // 2) hide or show something in some place and inverse in other place
 // import React from 'react'
+
+// const HOC = (InnerComponent) => class extends React.Component{
+// 	constructor(){
+// 		super();
+// 		this.state = {count: 0};
+// 		// this.update = this.bind.update(this); //How can we do it here??
+// 	}
+// 	update(){
+// 		this.setState({count: this.state.count+1});
+// 	}
+// 	componentWillMount(){
+// 		console.log('component will mount using hoc')
+// 	}
+// 	render(){
+// 		return(
+// 			<InnerComponent
+// 				{...this.props}
+// 				{...this.state}
+// 				update={this.update.bind(this)}
+// 			/>
+// 		)
+// 	}
+// }
 
 // class App extends React.Component{
 //   render(){
@@ -285,20 +310,96 @@
 //       <div>
 //         <Button>button</Button>
 //         <hr />
-//         <Label>label</Label>
+//         <LabelHOC>label</LabelHOC>
 //       </div>
 //     )
 //   }
 // }
 
-// const Button = (props) => <button>{props.children}</button>
+// const Button = HOC((props) => <button onClick={props.update}>{props.children} - {props.count}</button>)
 
 // class Label extends React.Component{
+//   componentWillMount(){
+//   	console.log('labeb will mount')
+//   }
+
 //   render(){
 //     return(
-//       <label>{this.props.children}</label>
+//       <label onMouseMove={this.props.update} >
+//       	{this.props.children} - {this.props.count}
+//       </label>
 //     )
 //   }
 // }
 
+// const LabelHOC = HOC(Label)
+
 // export default App
+
+
+
+
+// // ----------------- 16th tutorial - Build a JSX Live Compiler as a React Component -------------- //
+// // Creating your own custom transpiler using babel
+
+// // Added cdn of babel standalone in index.html in script tag 
+
+// import React from 'react'
+// import './App.css' // or i can simply state import 'App.css'
+// class App extends React.Component{
+// 	constructor(){
+// 		super();
+// 		this.state = {
+// 			input: '/* Add your jsx here */',
+// 			output: '',
+// 			err: ''
+// 		}
+// 	}
+// 	update(e){
+// 		// We can access window like this and it has all the events plus it has babel standalone 
+// 		// so one we import babel standalone through cdn in script tag we can access it by window.Babel...
+// 		// console.log(window);
+// 		let code = e.target.value;
+// 		try{
+// 			this.setState({
+// 				output:window.Babel
+// 				.transform(code, {presets:['es2015']})
+// 				.code,
+// 				err: ''
+// 			})
+// 		}
+// 		catch(err)
+// 		{
+// 			this.setState({err: err.message})
+// 		}
+// 	}
+// 	render(){
+// 		return(
+// 			<div>
+// 				<header>{this.state.err}</header>
+// 				<div className="container">
+// 					<textarea
+// 						onChange={this.update.bind(this)}
+// 						defaultValue={this.state.input} />
+// 					<pre>
+// 						{this.state.output}
+// 					</pre>
+// 				</div>
+// 			</div>
+// 		)
+// 	}
+// }
+
+// export default App
+
+
+
+// // ----------------- 17th tutorial - Build a JSX Live Compiler as a React Component -------------- //
+
+
+
+
+
+
+
+
